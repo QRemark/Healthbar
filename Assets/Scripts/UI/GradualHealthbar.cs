@@ -9,7 +9,7 @@ public class GradualHealthbar : MonoBehaviour
 
     private void Start()
     {
-        _playerHealth.OnHealthChanged.AddListener(UpdateGradualHealthbar);
+        _playerHealth.OnHealthChanged += UpdateGradualHealthbar;
         UpdateGradualHealthbar(_playerHealth.CurrentHealth, _playerHealth.MaxHealth);
     }
 
@@ -39,6 +39,6 @@ public class GradualHealthbar : MonoBehaviour
 
     private void OnDestroy()
     {
-        _playerHealth.OnHealthChanged.RemoveListener(UpdateGradualHealthbar);
+        _playerHealth.OnHealthChanged -= UpdateGradualHealthbar;
     }
 }

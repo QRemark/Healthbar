@@ -8,7 +8,7 @@ public class PercentHealthbar : MonoBehaviour
 
     private void Start()
     {
-        _playerHealth.OnHealthChanged.AddListener(UpdatePercentHealthbar);
+        _playerHealth.OnHealthChanged += UpdatePercentHealthbar;
         UpdatePercentHealthbar(_playerHealth.CurrentHealth, _playerHealth.MaxHealth);
     }
 
@@ -19,6 +19,6 @@ public class PercentHealthbar : MonoBehaviour
 
     private void OnDestroy()
     {
-        _playerHealth.OnHealthChanged.RemoveListener(UpdatePercentHealthbar);
+        _playerHealth.OnHealthChanged -= UpdatePercentHealthbar;
     }
 }

@@ -8,7 +8,7 @@ public class TextHealthbar : MonoBehaviour
 
     private void Start()
     {
-        _playerHealth.OnHealthChanged.AddListener(UpdateHealthText);
+        _playerHealth.OnHealthChanged += UpdateHealthText;
         UpdateHealthText(_playerHealth.CurrentHealth, _playerHealth.MaxHealth);
     }
 
@@ -19,6 +19,6 @@ public class TextHealthbar : MonoBehaviour
 
     private void OnDestroy()
     {
-        _playerHealth.OnHealthChanged.RemoveListener(UpdateHealthText);
+        _playerHealth.OnHealthChanged -= UpdateHealthText;
     }
 }
