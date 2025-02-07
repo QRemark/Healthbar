@@ -17,13 +17,13 @@ public class PlayerHealthContainer : MonoBehaviour
         OnHealthChanged.Invoke(_currentHealth, _baseHealth);
     }
 
-    public void IncreasePlayerHealth(float healthRange)
+    public void Increase(float healthRange)
     {
         _currentHealth = Mathf.Clamp(_currentHealth + healthRange, 0, _baseHealth);
         OnHealthChanged.Invoke(_currentHealth, _baseHealth);
     }
 
-    public void ReducePlayerHealth(float attackRange)
+    public void Reduce(float attackRange)
     {
         _currentHealth = Mathf.Clamp(_currentHealth - attackRange, 0, _baseHealth);
         OnHealthChanged.Invoke(_currentHealth, _baseHealth);
